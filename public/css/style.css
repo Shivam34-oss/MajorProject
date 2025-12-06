@@ -1,0 +1,256 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1;
+}
+/* navbar */
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important;
+}
+/* footer sections */
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+    /* color: #222222;  */
+}
+.f-info-socials,
+.f-info-links,.f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* vertical-align: middle; */
+}
+.f-info-socials i{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+.f-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: space-evenly; */
+    text-align: center;
+    height: 8rem;
+    background-color: rgb(227, 227, 217);
+}
+/* cards styling */
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.card-body{
+    padding: 0 !important;
+
+}
+.card-text p{
+    font-weight: 400 !important;
+
+}
+.listing-link {
+    text-decoration: none;
+}
+/* card effect */
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+/* new page styling */
+.add-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+/* edit page */
+.edit-btn{
+      background-color: #fe424d !important;
+    border: none !important;
+}
+/* show page */
+.show-img{
+    height: 30vh;
+}
+.btns{
+    display: flex;
+}
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+/* map style */
+ #map {
+     height: 50vh;
+        width: 80vh;
+      }
+/* filter style */
+  /* outer wrapper for arrows + filters */
+.filters-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-inline: 1rem;
+  margin-right: 4rem; 
+  justify-content: center;  /* ⬅ Add this to create space from the taxes toggle */
+}
+
+
+/* filters container */
+#filters-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  font-size: 0.6rem;
+  padding-block: 0.2rem;
+  /* full width le */
+  flex: 1;
+}
+
+/* scrollbar hide (optional) */
+#filters-container::-webkit-scrollbar {
+  display: none;
+}
+#filters-container {
+  -ms-overflow-style: none;  /* IE */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* existing .filter style tumhare screenshot se */
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;              /* icon-text gap kam */
+  padding: 0.35rem 0.6rem;   /* width kam */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.7rem;
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;   
+}
+
+/* arrow buttons style */
+.filter-arrow {
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 999px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.filter-arrow i {
+  font-size: 0.75rem;
+}
+
+.filter-arrow:hover {
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* active filter tumhare code se */
+.filter.active {
+  border: 1px solid black;
+  background: black;
+  color: white;
+}
+
+.filter.active:hover {
+  background: white;
+  color: black;
+}
+
+/* HOVER (normal) */
+.filter:hover {
+  background-color: #3e94ef;
+  color: white;
+}
+
+/* mobile responsive */
+@media (max-width: 768px) {
+  #filters-container {
+    font-size: 0.55rem;
+    gap: 0.5rem;
+  }
+
+  .filter {
+    padding: 0.3rem 0.45rem;
+    font-size: 0.55rem;
+  }
+
+  .filters-wrapper {
+    padding-inline: 0.5rem;
+  }
+
+  .filter-arrow {
+    width: 28px;
+    height: 28px;
+  }
+  .tax-toggle {
+    margin-left: 1rem;        /* mobile pe kam gap */
+    margin-right: 1rem;
+  }
+
+  .tax-toggle .form-switch {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .tax-toggle .form-check-input {
+    transform: scale(0.8);
+  }
+}
+
+/* tax toggle style */
+.tax-toggle {
+  margin-left: 3em;          /* filters se distance */
+  margin-right: 1.5rem;
+   align-items: center;
+}
+.tax-toggle .form-switch {
+    width: auto;
+  align-items: center;
+  gap: 0.6rem;                /* label aur switch ke beech space */
+  border-radius: 999px;       /* pill shape */
+  border: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 0 0 1px #f3f3f3;
+  font-size: 0.85rem;
+}
+#tax-info{
+    font-size: 0.9rem;
+    display: none;
+}
+/* search btn style */
+.btn-search i{
+    display: inline;
+    margin-right: 0.5rem;
+}
