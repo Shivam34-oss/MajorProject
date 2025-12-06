@@ -96,6 +96,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render("error", { message , statusCode  });
 });
 
-app.listen(8080, () => {
-    console.log("server is listing  to port 8080");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
