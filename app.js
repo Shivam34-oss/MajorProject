@@ -81,6 +81,13 @@ next();
 
 
 
+
+
+const listingController = require("./controllers/listing.js");
+const wrapAsync = require("./utils/wrapAsync.js")
+
+app.get("/", wrapAsync(listingController.index));
+
 app.use("/listings", listingRouter);
 // the using og mrgparams on sending block id render a reviews to send id 
 app.use("/listings/:id/reviews", reviewRouter);
@@ -88,10 +95,6 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.get('/healthcheck', (req, res) => res.status(200).send('OK'));
 
 
-const listingController = require("./controllers/listing.js");
-const wrapAsync = require("./utils/wrapAsync.js")
-
-app.get('/', wrapAsync(listingController.index));
 
 app.use("/", userRouter)
 
