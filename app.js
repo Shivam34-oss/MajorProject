@@ -105,7 +105,29 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render("error", { message , statusCode  });
 });
 
+// --- START SERVER FIRST (so Render health checks succeed) ---
 const port = process.env.PORT || 3000;
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+// Connect to MongoDB in background (do not block server start)
+(async () => {
+  try {
+    const dbUrl = process.env.ATLASDB_URL || process.env.MONGO_URL;
+    if (!dbUrl) {
+      console.warn("Warning: ATLASDB_URL is not set. Skipping DB connect.");
+      return;
+    }
+    // connect but don't stop server if it fails immediately
+    await mongoose.connect(dbUrl, {
+      // use same options you had before, if any
+    });
+    console.log("connected to DB");
+  } catch (err) {
+    console.error("MongoDB connection error:", err);
+    // don't exit the process here — let the server stay up and retry later
+    // optionally implement a retry logic if you want
+  }
+})();
