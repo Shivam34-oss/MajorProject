@@ -87,6 +87,8 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter)
 
+app.get('/healthcheck', (req, res) => res.send('OK'));
+
 app.all("*", (req, res, next) => {
     next(new ExpressError('Page not found!', 404));
 });
