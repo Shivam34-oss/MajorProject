@@ -63,6 +63,10 @@ const sessionOptions = {
 }
 
 
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} -> ${req.method} ${req.originalUrl}`);
+  next();
+});
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -82,12 +86,14 @@ res.locals.currUser = req.user;
 next();
 })
 
+app.get('/healthcheck', (req, res) => res.send('OK'));
+
+
 app.use("/listings", listingRouter);
 // the using og mrgparams on sending block id render a reviews to send id 
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter)
 
-app.get('/healthcheck', (req, res) => res.send('OK'));
 
 app.all("*", (req, res, next) => {
     next(new ExpressError('Page not found!', 404));
