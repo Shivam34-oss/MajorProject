@@ -88,7 +88,7 @@ app.use("/listings/:id/reviews", reviewRouter);
 // TEMPORARY debug routes — add these BEFORE any app.use('/', ...) router mounts
 app.get('/healthcheck', (req, res) => res.status(200).send('OK'));
 
-app.get('/', (req, res) => res.redirect('/listings'));
+app.get('/', (req, res) => res.redirect('/listings/index.ejs'));
 
 app.use("/", userRouter)
 
