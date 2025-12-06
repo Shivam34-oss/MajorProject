@@ -3,20 +3,16 @@ const Listing = require("../models/listing.js");
 // /listings  OR  /listings?category=beach
 module.exports.index = async (req, res) => {
   try {
-    const { category } = req.query;  // URL se ?category=... aayega
-    // console.log("Query category :" , category)  ;    
+    const { category } = req.query;    
 
     // 1. filter object
     const filter = {};
     if (category && category !== "all") {
-      filter.category = category;          // { category: "beach" }
+      filter.category = category;  
     }
 
-    //  console.log("Mongo filter:", filter); 
-    // 2. DB se data lao (filtered ya sab)
     const allListings = await Listing.find(filter);
 
-    // 3. saare possible categories (schema ke enum ke same)
     const categories = [
       "trendings",
       "rooms",
@@ -30,7 +26,6 @@ module.exports.index = async (req, res) => {
       "artics",
     ];
 
-    // 4. view ko data bhejo
     res.render("listings/index.ejs", {
       allListings,
       categories,
