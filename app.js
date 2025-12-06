@@ -87,7 +87,11 @@ app.use("/listings/:id/reviews", reviewRouter);
 // TEMPORARY debug routes — add these BEFORE any app.use('/', ...) router mounts
 app.get('/healthcheck', (req, res) => res.status(200).send('OK'));
 
-app.get('/', (req, res) => res.redirect('/listings'));
+
+const listingController = require("./controllers/listing.js");
+const wrapAsync = require("./utils/wrapAsync.js")
+
+app.get('/', wrapAsync(listingController.index));
 
 app.use("/", userRouter)
 
