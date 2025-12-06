@@ -62,12 +62,6 @@ const sessionOptions = {
     },
 }
 
-
-app.use((req, res, next) => {
-  console.log(`${new Date().toISOString()} -> ${req.method} ${req.originalUrl}`);
-  next();
-});
-
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -86,12 +80,19 @@ res.locals.currUser = req.user;
 next();
 })
 
-app.get('/healthcheck', (req, res) => res.send('OK'));
 
 
 app.use("/listings", listingRouter);
 // the using og mrgparams on sending block id render a reviews to send id 
 app.use("/listings/:id/reviews", reviewRouter);
+// TEMPORARY debug routes — add these BEFORE any app.use('/', ...) router mounts
+app.get('/healthcheck', (req, res) => res.status(200).send('OK'));
+
+app.get('/', (req, res) => {
+  // super-simple direct response to prove root works
+  return res.status(200).send('Hello — server is running (root test)');
+});
+
 app.use("/", userRouter)
 
 
