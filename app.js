@@ -88,10 +88,7 @@ app.use("/listings/:id/reviews", reviewRouter);
 // TEMPORARY debug routes — add these BEFORE any app.use('/', ...) router mounts
 app.get('/healthcheck', (req, res) => res.status(200).send('OK'));
 
-app.get('/', (req, res) => {
-  // super-simple direct response to prove root works
-  return res.status(200).send('Hello — server is running (root test)');
-});
+app.get('/', (req, res) => res.redirect('/listings'));
 
 app.use("/", userRouter)
 
