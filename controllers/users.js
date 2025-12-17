@@ -65,9 +65,9 @@ module.exports.sendResetLink = async (req ,res)=>{
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth:{
-            user :'YOUR_EMAIL@gmail.com',
-            pass : 'YOUR_APP_PASSWORD'
-        }
+            user : process.env.GMAIL_USER ,
+            pass : process.env.GMAIL_PASS
+        },
     });
     const mailOptions = {
         to : user.email,
