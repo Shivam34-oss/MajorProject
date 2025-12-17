@@ -1,17 +1,18 @@
-const key = window.MAP_TOKEN;   // <-- yahi se milega EJS ka token
+maptilersdk.config.apiKey = mapToken;
 
-const map = new ol.Map({
-  target: "map",
-  layers: [
-    new ol.layer.Tile({
-      source: new ol.source.XYZ({
-        url: `https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=${key}`,
-      }),
-    }),
-  ],
-  view: new ol.View({
-    center: ol.proj.fromLonLat([77.2090, 28.6139]),
-    zoom: 10,
-  }),
+const map = new maptilersdk.Map({
+    container: 'map',
+    style: maptilersdk.MapStyle.STREETS,
+    center: coordinates, // <-- Yahan ab 'coordinates' variable use karein
+    zoom: 9
 });
 
+const marker = new maptilersdk.Marker({ color: "red" })
+    .setLngLat(coordinates) // <-- Yahan bhi 'coordinates'
+    .setPopup(
+        new maptilersdk.Popup({ offset: 25 })
+        .setHTML(
+            `<h4>${listingLocation}</h4><p>Exact location will be provided after booking</p>` // <-- Yahan 'locationName'
+        )
+    )
+    .addTo(map);

@@ -1,24 +1,31 @@
 const Listing = require("../models/listing.js");
+const maptilerClient = require("@maptiler/client");
+maptilerClient.config.apiKey = process.env.MAP_TOKEN;
 
 // /listings  OR  /listings?category=beach
 module.exports.index = async (req, res) => {
   try {
-    const { category } = req.query;
-
+    const { category ,q } = req.query;
+    // console.log("Search Query:",q);
+    // console.log("Category Filter:",category);
     // filter object
     const filter = {};
     if (category && category !== "all") {
-      filter.category = category;
+      filter.category ={$regex:category ,$options:"i"};
     }
-
+      if(q){
+        const cleanQuery = q.trim();
+        filter.$or = [
+          {title:{$regex:cleanQuery, $options:"i"}},
+          {location:{$regex:cleanQuery,$options:"i"}},
+          {country:{$regex:cleanQuery,$options:"i"}}
+        ];
+      }
     const allListings = await Listing.find(filter);
-
-    const categories = [
-      "trendings","rooms", "beachs", "iconic cities", "cabins", "mountains", "amazing pools", "campings", "farms", "artics", ];
 
     res.render("listings/index.ejs", {
       allListings,
-      categories,
+      categories :["trendings","rooms", "beachs", "iconic cities", "cabins", "mountains", "amazing pools", "campings", "farms", "artics",],
       activeCategory: category || "all",
     });
   } catch (err) {
@@ -50,11 +57,14 @@ module.exports.showListing = async (req, res) => {
 module.exports.createListing = async (req, res, next) => {
   let url = req.file.path; // cloudinary url
   let filename = req.file.filename; // cloudinary filename
+  let response = await maptilerClient.geocoding.forward(req.body.listing.location);
 
   const newListing = new Listing(req.body.listing);
   newListing.owner = req.user._id;
   newListing.image = { url, filename }; // set image property to an object with url and filename
-  await newListing.save();
+  newListing.geometry = response.features[0].geometry;
+  let savedListing = await newListing.save();
+  console.log(savedListing);
   req.flash("success", "New listing creating")
   res.redirect("/listings");
 };
@@ -75,7 +85,15 @@ module.exports.editListing = async (req, res) => {
 
 module.exports.updateListing = async (req, res) => {
   let { id } = req.params;
+  // console.log("form data check:",req.body);
+  // map working code
+ 
+    let response = await maptilerClient.geocoding.forward(req.body.listing.location);
+    req.body.listing.geometry = response.features[0].geometry;
+    
+  // listing wotking 
   let listing = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+
   if (typeof req.file !== 'undefined') {
     let url = req.file.path; // cloudinary url
     let filename = req.file.filename; // cloudinary filename

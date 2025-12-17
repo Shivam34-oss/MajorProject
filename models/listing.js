@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const review = require("./review.js");
+const { required } = require("joi");
+const { coordinates } = require("@maptiler/client");
 const Schema = mongoose.Schema;
 
 const listingSchema = new mongoose.Schema({
@@ -17,6 +19,17 @@ const listingSchema = new mongoose.Schema({
   price: Number,
   location: String,
   country: String,
+  geometry:{
+    type:{
+      type:String,
+      enum :['Point'],
+      required:true
+    },
+    coordinates:{
+      type:[Number],
+      required:true
+    }
+  },
   reviews:[
     {
       type: Schema.Types.ObjectId,
@@ -29,7 +42,7 @@ const listingSchema = new mongoose.Schema({
   },
   category: String,
   type: String,
-  enum : [ "trendings" , "rooms", "beachs", "iconic cities",  "mountains", "amazing pools" , "campings" , "farms" , "artics" ],
+  enum : [ "trending" , "rooms", "beaches", "iconic cities",  "mountains", "amazing pools" , "camping" , "farms" , "arctic" ],
 })
 // using a random review delete to listing both 
 listingSchema.post("findOneAndDelete",async(listing)=>{

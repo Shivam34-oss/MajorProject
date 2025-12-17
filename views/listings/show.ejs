@@ -1,9 +1,4 @@
 <% layout("/layouts/boilerplate") %>
-<script>
-    window.MAP_TOKEN = "<%= mapToken %>";
-    
-</script>
-
     <div class="row mt-3">
         <div class="col-8 offset-3">
             <h3>
@@ -109,5 +104,15 @@
         <h3>Where you'll be</h3>
         <div id="map"></div>
     </div>
+
+<script>
+    const mapToken = "<%= process.env.MAP_TOKEN %>";
+
+    // this is  SAFE CODE: 
+    const coordinates = <%- JSON.stringify(listing.geometry && listing.geometry.coordinates.length ? listing.geometry.coordinates : [77.209, 28.6139]) %>;
+
+    //  Location Code
+    const listingLocation = <%- JSON.stringify(listing.location) %>;
+</script>
 
 <script src="/js/map.js"></script>

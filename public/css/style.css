@@ -101,11 +101,14 @@ body{
 }
 /* map style */
  #map {
-     height: 50vh;
-        width: 80vh;
+     height: 400px;
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
       }
 /* filter style */
-  /* outer wrapper for arrows + filters */
+
 .filters-wrapper {
   display: flex;
   align-items: center;
@@ -113,7 +116,7 @@ body{
   margin-top: 1rem;
   padding-inline: 1rem;
   margin-right: 4rem; 
-  justify-content: center;  /* ⬅ Add this to create space from the taxes toggle */
+  justify-content: center; 
 }
 
 
@@ -134,16 +137,16 @@ body{
   display: none;
 }
 #filters-container {
-  -ms-overflow-style: none;  /* IE */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
 }
 
-/* existing .filter style tumhare screenshot se */
+/* existing .filter  */
 .filter {
   display: flex;
   align-items: center;
-  gap: 0.35rem;              /* icon-text gap kam */
-  padding: 0.35rem 0.6rem;   /* width kam */
+  gap: 0.35rem;              
+  padding: 0.35rem 0.6rem;   
   border: 1px solid #ccc;
   border-radius: 10px;
   cursor: pointer;
@@ -176,7 +179,7 @@ body{
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
-/* active filter tumhare code se */
+/* active filter  */
 .filter.active {
   border: 1px solid black;
   background: black;
@@ -226,6 +229,9 @@ body{
 
   .tax-toggle .form-check-input {
     transform: scale(0.8);
+  }
+  #map{
+    height: 300px;
   }
 }
 
