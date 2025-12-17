@@ -1,4 +1,4 @@
-const user = require("../models/user.js");
+const User = require("../models/user");
 const crypto =  require('crypto');
 const nodemailer = require('nodemailer');
 module.exports.renderSignup = (req, res) => {
