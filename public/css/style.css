@@ -1,12 +1,18 @@
+
 /* new page styling */
 .add-btn{
     background-color: #fe424d !important;
     border: none !important;
 }
 /* edit page */
-.edit-btn{
-    background-color: #fe424d !important;
-    border: none !important;
+.btns-edit{
+    background-color: #007bff; /* नीला रंग */
+  border-color: #007bff;
+  color: #fff;
+}
+.btns-edit:hover{
+    background-color: #0056b3; /* डार्क नीला */
+  border-color: #0056b3;
 }
 /* show page */
 .show-img{
@@ -24,29 +30,5 @@
         margin-bottom: 20px;
         border: 1px solid #ccc;
       }
-/* tax toggle style */
-.tax-toggle {
-  margin-left: 3em;          /* filters se distance */
-  margin-right: 1.5rem;
-   align-items: center;
-}
-.tax-toggle .form-switch {
-    width: auto;
-  align-items: center;
-  gap: 0.6rem;                /* label aur switch ke beech space */
-  border-radius: 999px;       /* pill shape */
-  border: 1px solid #ddd;
-  background: #fff;
-  box-shadow: 0 0 0 1px #f3f3f3;
-  font-size: 0.85rem;
-}
-#tax-info{
-    font-size: 0.9rem;
-    display: none;
-}
-/* search btn style */
-.btn-search i{
-    display: inline;
-    margin-right: 0.5rem;
-}
+
 

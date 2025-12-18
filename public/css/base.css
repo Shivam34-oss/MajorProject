@@ -1,9 +1,10 @@
 body {
-  font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-family: "Plus Jakarta Sans", sans-serif;
   min-height: 100vh;
+  margin: 0;
 }
 
-/* footer layout */
+/* MAIN CONTENT FLEX */
 .main-content {
-  flex: 1;
+  min-height: calc(100vh - 80px); /* navbar height adjust */
 }

@@ -1,40 +1,44 @@
 /*FILTERS – MOBILE */
 @media (max-width: 768px) {
+
+  .filters-wrapper {
+    padding: 0.5rem 0.25rem;
+    margin-top: 72px;   /* navbar height only */
+  }
+
   #filters-container {
-    font-size: 0.55rem;
-    gap: 0.5rem;
+    gap: 0.6rem;
   }
 
   .filter {
-    padding: 0.3rem 0.45rem;
     font-size: 0.55rem;
+    padding: 0.25rem 0.35rem;
   }
 
-  .filters-wrapper {
-    padding-inline: 0.5rem;
+  .filter i {
+    font-size: 1rem;
   }
 
   .filter-arrow {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
   }
 
   .tax-toggle {
-    margin-inline: 1rem;
+    padding: 0.35rem 0.6rem;
   }
 
-  .tax-toggle .form-switch {
-    padding: 0.25rem 0.6rem;
-    font-size: 0.75rem;
+  .tax-switch .form-check-label {
+    font-size: 0.7rem;
   }
-
-  .tax-toggle .form-check-input {
-    transform: scale(0.8);
+  body.navbar-open .filters-wrapper {
+    transform: none;
   }
 
   #map {
     height: 300px;
   }
+
 }
 
 /*  BUTTON STACK – SMALL MOBILE */
@@ -45,17 +49,6 @@
 
   .btns .btn {
     width: 100%;
-  }
-}
-
-/*  FILTERS SHIFT WHEN NAVBAR OPEN */
-@media (max-width: 767px) {
-  .filters-wrapper {
-    transition: transform 0.25s ease-in-out;
-  }
-
-  body.navbar-open .filters-wrapper {
-    transform: translateY(260px);
   }
 }
 
