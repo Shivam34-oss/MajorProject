@@ -1,0 +1,88 @@
+.filters-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-inline: 1rem;
+  margin-right: 4rem; 
+  justify-content: center; 
+  transition: margin-top 0.25s ease-in-out;
+}
+
+
+/* filters container */
+#filters-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  font-size: 0.6rem;
+  padding-block: 0.2rem;
+  /* full width le */
+  flex: 1;
+}
+
+/* scrollbar hide (optional) */
+#filters-container::-webkit-scrollbar {
+  display: none;
+}
+#filters-container {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+}
+
+/* existing .filter  */
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;              
+  padding: 0.35rem 0.6rem;   
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.7rem;
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;   
+}
+
+/* arrow buttons style */
+.filter-arrow {
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 999px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.filter-arrow i {
+  font-size: 0.75rem;
+}
+
+.filter-arrow:hover {
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* active filter  */
+.filter.active {
+  border: 1px solid black;
+  background: black;
+  color: white;
+}
+
+.filter.active:hover {
+  background: white;
+  color: black;
+}
+
+/* HOVER (normal) */
+.filter:hover {
+  background-color: #3e94ef;
+  color: white;
+}

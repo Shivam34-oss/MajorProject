@@ -1,0 +1,38 @@
+/*  SEARCH BAR ANIMATION */
+.navbar-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* input default */
+.search-input {
+  width: 180px;
+  transition: width 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* expand on focus */
+.search-input:focus {
+  width: 320px;
+  box-shadow: 0 0 0 0.15rem rgba(254, 66, 77, 0.25);
+}
+
+/* button smooth */
+.search-btn {
+  transition: background 0.25s ease, color 0.25s ease;
+}
+/* mobile full width */
+@media (max-width: 767px) {
+  .navbar-search {
+    width: 100%;
+  }
+
+  .search-input,
+  .search-input:focus {
+    width: 100%;
+  }
+
+  .search-text {
+    display: none; /* icon only on mobile */
+  }
+}

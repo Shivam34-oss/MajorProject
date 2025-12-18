@@ -1,0 +1,110 @@
+/* NAVBAR BASE (STICKY + GLASS) */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+/* Gradient animation */
+@keyframes navbarGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* Scroll shadow */
+.navbar-scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/*  LOGO */
+.fa-compass {
+  color: #fe424d;
+  font-size: 2rem;
+}
+
+/* NAV LINKS*/
+.nav-link {
+  color: #222222 !important;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* NAVBAR LAYOUT (LEFT / CENTER / RIGHT) */
+.navbar-left,
+.navbar-right {
+  flex: 1;
+}
+
+.navbar-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-search {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* COLLAPSE BASE */
+.navbar-collapse {
+  position: relative;
+  z-index: 1050;
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+
+/* MOBILE COLLAPSE (GLASS CARD) */
+@media (max-width: 767px) {
+  .navbar-collapse {
+    margin-top: 10px;
+    padding: 1rem;
+    border-radius: 16px;
+
+    background: linear-gradient(
+      135deg,
+      rgba(255, 56, 92, 0.85),
+      rgba(255, 126, 95, 0.85)
+    );
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .navbar-collapse .nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+  }
+
+  .navbar-right {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* DESKTOP RESET */
+@media (min-width: 768px) {
+  .navbar-collapse {
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    margin-top: 0;
+  }
+}

@@ -42,7 +42,7 @@ const listingSchema = new mongoose.Schema({
   },
   category: String,
   type: String,
-  enum : [ "trending" , "rooms", "beaches", "iconic cities",  "mountains", "amazing pools" , "camping" , "farms" , "arctic" ],
+  enum : [ "Trending" , "Rooms", "Beaches", "Iconic Cities",  "Mountains", "Amazing Pools" , "Camping" , "Farms" , "Arctic" ],
 })
 // using a random review delete to listing both 
 listingSchema.post("findOneAndDelete",async(listing)=>{

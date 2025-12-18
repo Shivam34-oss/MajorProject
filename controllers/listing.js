@@ -25,7 +25,7 @@ module.exports.index = async (req, res) => {
 
     res.render("listings/index.ejs", {
       allListings,
-      categories :["trendings","rooms", "beachs", "iconic cities", "cabins", "mountains", "amazing pools", "campings", "farms", "artics",],
+      categories :["Trendings","Rooms", "Beachs", "Iconic Cities", "Cabins", "Mountains", "Amazing Pools", "Campings", "Farms", "Artics",],
       activeCategory: category || "all",
     });
   } catch (err) {

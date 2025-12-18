@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-body-light border-bottom stiky-top">
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/listings"
       ><i class="fa-solid fa-compass"></i
@@ -12,35 +12,37 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <!-- LEFT -->
+      <div class="navbar-left d-flex align-items-center">
         <a class="nav-link" href="/listings">Explore</a>
-        <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
-        <div class="navbar-nav ms-auto">
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              name="q"
-              placeholder="Search destination"
-            />
-            <button class="btn btn-outline-danger btn-search" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>Search
-            </button>
-          </form>
-        </div>
       </div>
-      <div class="navbar-nav ms-auto">
+
+      <!-- CENTER -->
+      <div class="navbar-center mx-auto">
+        <form class="d-flex navbar-search">
+          <input
+            class="form-control me-2 search-input"
+            type="search"
+            name="q"
+            placeholder="Search destination"
+          />
+          <button class="btn btn-outline-danger search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i> 
+            <span class="search-text">Search</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="navbar-right d-flex align-items-center gap-3">
         <a class="nav-link" href="/listings/new">Add New Listing</a>
 
         <% if(!currUser) { %>
         <a class="nav-link" href="/signup"><b>Signup</b></a>
         <a class="nav-link" href="/login"><b>Login</b></a>
-
-        <% } %> <% if (currUser) { %>
-
+        <% } %> <% if(currUser) { %>
         <a class="nav-link" href="/logout">LogOut</a>
         <% } %>
-        <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
       </div>
     </div>
   </div>

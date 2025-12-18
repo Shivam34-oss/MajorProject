@@ -1,0 +1,32 @@
+.f-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: space-evenly; */
+    text-align: center;
+    height: 8rem;
+    background-color: rgb(227, 227, 217);
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0;
+}
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+    /* color: #222222;  */
+}
+.f-info-socials,
+.f-info-links,.f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* vertical-align: middle; */
+}
+.f-info-socials i{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}

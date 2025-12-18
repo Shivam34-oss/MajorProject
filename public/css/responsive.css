@@ -1,0 +1,61 @@
+/*FILTERS – MOBILE */
+@media (max-width: 768px) {
+  #filters-container {
+    font-size: 0.55rem;
+    gap: 0.5rem;
+  }
+
+  .filter {
+    padding: 0.3rem 0.45rem;
+    font-size: 0.55rem;
+  }
+
+  .filters-wrapper {
+    padding-inline: 0.5rem;
+  }
+
+  .filter-arrow {
+    width: 28px;
+    height: 28px;
+  }
+
+  .tax-toggle {
+    margin-inline: 1rem;
+  }
+
+  .tax-toggle .form-switch {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .tax-toggle .form-check-input {
+    transform: scale(0.8);
+  }
+
+  #map {
+    height: 300px;
+  }
+}
+
+/*  BUTTON STACK – SMALL MOBILE */
+@media (max-width: 576px) {
+  .btns {
+    flex-direction: column;
+  }
+
+  .btns .btn {
+    width: 100%;
+  }
+}
+
+/*  FILTERS SHIFT WHEN NAVBAR OPEN */
+@media (max-width: 767px) {
+  .filters-wrapper {
+    transition: transform 0.25s ease-in-out;
+  }
+
+  body.navbar-open .filters-wrapper {
+    transform: translateY(260px);
+  }
+}
+
